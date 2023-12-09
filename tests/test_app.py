@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from deploy_lr_project.app import app
-
+import pytest
 
 @pytest.fixture
 def client():
