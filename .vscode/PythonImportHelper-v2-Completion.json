@@ -51,7 +51,7 @@
         "documentation": {}
     },
     {
-        "label": "RobustScaler",
+        "label": "MinMaxScaler",
         "importPath": "sklearn.preprocessing",
         "description": "sklearn.preprocessing",
         "isExtraImport": true,
@@ -106,7 +106,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "df = pd.read_csv('../ml-model/StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
+        "peekOfCode": "df = pd.read_csv('../ml-model/StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -115,7 +115,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "X = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], ",
+        "peekOfCode": "X = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], ",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -124,7 +124,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "y = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], ",
+        "peekOfCode": "y = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], ",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -133,7 +133,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "sc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], ",
+        "peekOfCode": "sc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], ",
         "detail": "ml-model.model",
         "documentation": {}
     },
