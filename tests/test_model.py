@@ -1,4 +1,7 @@
-from model import train_model, predict
+import sys
+sys.path.append('../ml-model')  # Replace with the actual path
+from deploy_lr_project.ml_model.model import train_model, predict
+
 import pandas as pd
 import pytest
 
@@ -7,7 +10,24 @@ def test_train_model():
     df_train = pd.DataFrame({
         'anxiety_level': [14, 15, 16],
         'self_esteem': [20, 21, 22],
-        # ... (other features)
+        'self_esteem' : [20], 
+    'mental_health_history' : [0], 
+    'depression' : [11], 
+    'headache' : [2], 
+    'blood_pressure' : [1], 
+    'sleep_quality' : [2], 
+    'breathing_problem' : [4], 
+    'noise_level' : [2], 
+    'living_conditions' : [3], 
+    'safety' : [3], 
+    'basic_needs' : [2], 
+    'academic_performance' : [3], 
+    'study_load' : [2], 
+    'teacher_student_relationship' : [3], 
+    'future_career_concerns' : [3], 
+    'social_support' : [2], 
+    'peer_pressure' : [3], 
+    'extracurricular_activities' : [3], 
         'bullying': [2, 3, 2],
         'stress_level': [1, 2, 1]  # Assuming stress level as the target variable
     })
@@ -18,14 +38,30 @@ def test_train_model():
 def test_predict():
     # Add a test for model prediction
     input_data = pd.DataFrame({
-        'anxiety_level': [14],
-        'self_esteem': [20],
-        # ... (other features)
-        'bullying': [2]
+        'anxiety_level' : [14], 
+    'self_esteem' : [20], 
+    'mental_health_history' : [0], 
+    'depression' : [11], 
+    'headache' : [2], 
+    'blood_pressure' : [1], 
+    'sleep_quality' : [2], 
+    'breathing_problem' : [4], 
+    'noise_level' : [2], 
+    'living_conditions' : [3], 
+    'safety' : [3], 
+    'basic_needs' : [2], 
+    'academic_performance' : [3], 
+    'study_load' : [2], 
+    'teacher_student_relationship' : [3], 
+    'future_career_concerns' : [3], 
+    'social_support' : [2], 
+    'peer_pressure' : [3], 
+    'extracurricular_activities' : [3], 
+    'bullying' : [2]
     })
 
     model = train_model(pd.DataFrame())  # You might want to use a trained model here
     prediction = predict(model, input_data)
     assert prediction is not None
 
-# Add more tests as needed
+

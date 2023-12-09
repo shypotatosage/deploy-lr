@@ -1,4 +1,6 @@
-from app import app
+import sys
+sys.path.append('..//deploy-lr-project')  # Replace with the actual path
+from deploy_lr_project.app import app
 import pytest
 
 @pytest.fixture
