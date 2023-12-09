@@ -1,0 +1,159 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "RobustScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "svm",
+        "importPath": "sklearn",
+        "description": "sklearn",
+        "isExtraImport": true,
+        "detail": "sklearn",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "hello_world",
+        "kind": 2,
+        "importPath": "deploy-lr-project.app",
+        "description": "deploy-lr-project.app",
+        "peekOfCode": "def hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], \n        'blood_pressure' : [blood_pressure], \n        'sleep_quality' : [sleep_quality], \n        'breathing_problem' : [breathing_problem], ",
+        "detail": "deploy-lr-project.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "deploy-lr-project.app",
+        "description": "deploy-lr-project.app",
+        "peekOfCode": "app = Flask(__name__)\nmodel = pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], ",
+        "detail": "deploy-lr-project.app",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "deploy-lr-project.app",
+        "description": "deploy-lr-project.app",
+        "peekOfCode": "model = pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], \n        'blood_pressure' : [blood_pressure], ",
+        "detail": "deploy-lr-project.app",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "df = pd.read_csv('StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "X",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "X = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "y = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "sc",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "sc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "X_train",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "X_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "logreg",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "logreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], \n    'blood_pressure' : [1], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "input_data",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "input_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], \n    'blood_pressure' : [1], \n    'sleep_quality' : [2], \n    'breathing_problem' : [4], \n    'noise_level' : [2], ",
+        "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "predicted",
+        "kind": 5,
+        "importPath": "ml-model.model",
+        "description": "ml-model.model",
+        "peekOfCode": "predicted = logreg.predict(input_data)\nprint(predicted[0])",
+        "detail": "ml-model.model",
+        "documentation": {}
+    }
+]
