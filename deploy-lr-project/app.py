@@ -5,10 +5,19 @@ from csv import writer
 import subprocess
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+# model = pickle.load(open('model.pkl', 'rb'))
+model = None
+
+def load_model():
+    return pickle.load(open('model.pkl', 'rb'))
 
 @app.route("/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>", methods=['GET'])
 def hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):
+    global model
+    
+    if model is None:  
+        model = load_model()
+        
     input_data = pd.DataFrame({
         'anxiety_level' : [anxiety_level], 
         'self_esteem' : [self_esteem], 
