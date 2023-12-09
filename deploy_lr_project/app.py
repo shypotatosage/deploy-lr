@@ -44,7 +44,7 @@ def hello_world(anxiety_level, self_esteem, mental_health_history, depression, h
     try:
         predicted = model.predict(input_data)
 
-        with open('../ml-model/StressLevelDataset.csv', 'a') as f_object:
+        with open('../ml_model/StressLevelDataset.csv', 'a') as f_object:
             writer_object = writer(f_object)
         
             # Pass the list as an argument into
@@ -54,7 +54,7 @@ def hello_world(anxiety_level, self_esteem, mental_health_history, depression, h
             # Close the file object
             f_object.close()
             
-        exec(open('../ml-model/model.py').read())
+        exec(open('../ml_model/model.py').read())
     except Exception as inst:
         print(type(inst))
         print(inst.args)

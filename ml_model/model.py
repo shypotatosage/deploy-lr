@@ -4,7 +4,7 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 import pickle
 
-df = pd.read_csv('../ml-model/StressLevelDataset.csv')
+df = pd.read_csv('../ml_model/StressLevelDataset.csv')
 
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
@@ -16,7 +16,7 @@ X_train = sc.fit_transform(X_train)
 
 logreg = svm.SVC(kernel='linear')
 logreg.fit(X_train, y_train)
-pickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))
+pickle.dump(logreg, open('../deploy_lr_project/model.pkl', 'wb'))
 
 input_data = pd.DataFrame({
     'anxiety_level' : [14], 
