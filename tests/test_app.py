@@ -1,7 +1,11 @@
 import sys
-sys.path.append('../deploy-lr-project')  # Replace with the actual path
+import os
+
+# Add the root directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from deploy_lr_project.app import app
-import pytest
+
 
 @pytest.fixture
 def client():

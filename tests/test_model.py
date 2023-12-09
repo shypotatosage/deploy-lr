@@ -1,7 +1,11 @@
 import sys
-sys.path.append('../ml-model')  # Replace with the actual path
-from deploy_lr_project.ml_model.model import train_model, predict
+import os
 
+# Add the root directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from ml_model.model import train_model
+from ml_model.predict import predict
 import pandas as pd
 import pytest
 
