@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 import pickle
 import pandas as pd
+from csv import writer
+import subprocess
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -32,6 +34,18 @@ def hello_world(anxiety_level, self_esteem, mental_health_history, depression, h
     
     try:
         predicted = model.predict(input_data)
+
+        with open('../ml-model/StressLevelDataset.csv', 'a') as f_object:
+            writer_object = writer(f_object)
+        
+            # Pass the list as an argument into
+            # the writerow()
+            writer_object.writerow([anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying, predicted[0]])
+        
+            # Close the file object
+            f_object.close()
+            
+        exec(open('../ml-model/model.py').read())
     except Exception as inst:
         print(type(inst))
         print(inst.args)

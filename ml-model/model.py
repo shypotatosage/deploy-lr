@@ -4,7 +4,7 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 import pickle
 
-df = pd.read_csv('StressLevelDataset.csv')
+df = pd.read_csv('../ml-model/StressLevelDataset.csv')
 
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values

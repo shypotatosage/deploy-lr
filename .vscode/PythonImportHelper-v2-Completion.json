@@ -34,6 +34,23 @@
         "documentation": {}
     },
     {
+        "label": "writer",
+        "importPath": "csv",
+        "description": "csv",
+        "isExtraImport": true,
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
         "label": "RobustScaler",
         "importPath": "sklearn.preprocessing",
         "description": "sklearn.preprocessing",
@@ -89,7 +106,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "df = pd.read_csv('StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
+        "peekOfCode": "df = pd.read_csv('../ml-model/StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = RobustScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
         "detail": "ml-model.model",
         "documentation": {}
     },
