@@ -108,15 +108,6 @@
         "documentation": {}
     },
     {
-        "label": "pytest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pytest",
-        "description": "pytest",
-        "detail": "pytest",
-        "documentation": {}
-    },
-    {
         "label": "load_model",
         "kind": 2,
         "importPath": "deploy-lr-project.app",

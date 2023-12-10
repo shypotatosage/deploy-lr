@@ -2,11 +2,10 @@ import sys
 import os
 
 # Add the root directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append("../")
 
 from ml_model.model import train_model, predict  # Corrected import statements
 import pandas as pd
-import pytest
 
 def test_train_model():
     # Add a test for model training
