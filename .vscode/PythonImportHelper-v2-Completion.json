@@ -16,6 +16,14 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "pickle",
         "kind": 6,
         "isExtraImport": true,
@@ -39,15 +47,6 @@
         "description": "csv",
         "isExtraImport": true,
         "detail": "csv",
-        "documentation": {}
-    },
-    {
-        "label": "subprocess",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "subprocess",
-        "description": "subprocess",
-        "detail": "subprocess",
         "documentation": {}
     },
     {
@@ -75,11 +74,63 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "deploy_lr_project.app",
+        "description": "deploy_lr_project.app",
+        "isExtraImport": true,
+        "detail": "deploy_lr_project.app",
+        "documentation": {}
+    },
+    {
+        "label": "statements",
+        "importPath": "ml_model.model import train_model. predict  # Corrected",
+        "description": "ml_model.model import train_model. predict  # Corrected",
+        "isExtraImport": true,
+        "detail": "ml_model.model import train_model. predict  # Corrected",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "load_model",
+        "kind": 2,
+        "importPath": "deploy-lr-project.app",
+        "description": "deploy-lr-project.app",
+        "peekOfCode": "def load_model():\n    return pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    global model\n    if model is None:  \n        model = load_model()\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], ",
+        "detail": "deploy-lr-project.app",
+        "documentation": {}
+    },
+    {
         "label": "hello_world",
         "kind": 2,
         "importPath": "deploy-lr-project.app",
         "description": "deploy-lr-project.app",
-        "peekOfCode": "def hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], \n        'blood_pressure' : [blood_pressure], \n        'sleep_quality' : [sleep_quality], \n        'breathing_problem' : [breathing_problem], ",
+        "peekOfCode": "def hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    global model\n    if model is None:  \n        model = load_model()\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], ",
         "detail": "deploy-lr-project.app",
         "documentation": {}
     },
@@ -88,7 +139,7 @@
         "kind": 5,
         "importPath": "deploy-lr-project.app",
         "description": "deploy-lr-project.app",
-        "peekOfCode": "app = Flask(__name__)\nmodel = pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], ",
+        "peekOfCode": "app = Flask(__name__)\n# model = pickle.load(open('model.pkl', 'rb'))\nmodel = None\ndef load_model():\n    return pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    global model\n    if model is None:  \n        model = load_model()",
         "detail": "deploy-lr-project.app",
         "documentation": {}
     },
@@ -97,7 +148,7 @@
         "kind": 5,
         "importPath": "deploy-lr-project.app",
         "description": "deploy-lr-project.app",
-        "peekOfCode": "model = pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], \n        'self_esteem' : [self_esteem], \n        'mental_health_history' : [mental_health_history], \n        'depression' : [depression], \n        'headache' : [headache], \n        'blood_pressure' : [blood_pressure], ",
+        "peekOfCode": "model = None\ndef load_model():\n    return pickle.load(open('model.pkl', 'rb'))\n@app.route(\"/predict/<anxiety_level>/<self_esteem>/<mental_health_history>/<depression>/<headache>/<blood_pressure>/<sleep_quality>/<breathing_problem>/<noise_level>/<living_conditions>/<safety>/<basic_needs>/<academic_performance>/<study_load>/<teacher_student_relationship>/<future_career_concerns>/<social_support>/<peer_pressure>/<extracurricular_activities>/<bullying>\", methods=['GET'])\ndef hello_world(anxiety_level, self_esteem, mental_health_history, depression, headache, blood_pressure, sleep_quality, breathing_problem, noise_level, living_conditions, safety, basic_needs, academic_performance, study_load, teacher_student_relationship, future_career_concerns, social_support, peer_pressure, extracurricular_activities, bullying):\n    global model\n    if model is None:  \n        model = load_model()\n    input_data = pd.DataFrame({\n        'anxiety_level' : [anxiety_level], ",
         "detail": "deploy-lr-project.app",
         "documentation": {}
     },
@@ -171,6 +222,42 @@
         "description": "ml-model.model",
         "peekOfCode": "predicted = logreg.predict(input_data)\nprint(predicted[0])",
         "detail": "ml-model.model",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def client():\n    return app.test_client()\ndef test_predict_route(client):\n    response = client.get('/predict/14/20/0/11/2/1/2/4/2/3/3/3/2/3/2/3/3/3/3/2')\n    assert response.status_code == 200\n    assert response.get_json() == 1  # Assuming your prediction is a stress level\n# Add more tests for different routes and edge cases as needed",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_predict_route",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_predict_route(client):\n    response = client.get('/predict/14/20/0/11/2/1/2/4/2/3/3/3/2/3/2/3/3/3/3/2')\n    assert response.status_code == 200\n    assert response.get_json() == 1  # Assuming your prediction is a stress level\n# Add more tests for different routes and edge cases as needed",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_train_model",
+        "kind": 2,
+        "importPath": "tests.test_model",
+        "description": "tests.test_model",
+        "peekOfCode": "def test_train_model():\n    # Add a test for model training\n    df_train = pd.DataFrame({\n        'anxiety_level': [14, 15, 16],\n        'self_esteem': [20, 21, 22],\n        'mental_health_history': [0],\n        'depression': [11],\n        'headache': [2],\n        'blood_pressure': [1],\n        'sleep_quality': [2],",
+        "detail": "tests.test_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_predict",
+        "kind": 2,
+        "importPath": "tests.test_model",
+        "description": "tests.test_model",
+        "peekOfCode": "def test_predict():\n    # Add a test for model prediction\n    input_data = pd.DataFrame({\n        'anxiety_level': [14],\n        'self_esteem': [20],\n        'mental_health_history': [0],\n        'depression': [11],\n        'headache': [2],\n        'blood_pressure': [1],\n        'sleep_quality': [2],",
+        "detail": "tests.test_model",
         "documentation": {}
     }
 ]

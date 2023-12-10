@@ -1,8 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 import pickle
 import pandas as pd
 from csv import writer
-import subprocess
 
 app = Flask(__name__)
 # model = pickle.load(open('model.pkl', 'rb'))
@@ -56,11 +55,15 @@ def hello_world(anxiety_level, self_esteem, mental_health_history, depression, h
             
         exec(open('../ml-model/model.py').read())
     except Exception as inst:
-        print(type(inst))
-        print(inst.args)
-        print(inst)
+        return Response(jsonify(inst), status=500, mimetype='application/json')
     
-    return jsonify(int(predicted[0]))
+    response = {
+        'status': 200,
+        'message': "Success",
+        'result': int(predicted[0])
+    }
+    
+    return jsonify(response)
 
 if __name__ == "__main__":
     app.run()
