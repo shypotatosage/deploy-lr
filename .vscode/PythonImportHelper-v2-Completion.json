@@ -58,11 +58,11 @@
         "documentation": {}
     },
     {
-        "label": "svm",
-        "importPath": "sklearn",
-        "description": "sklearn",
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
         "isExtraImport": true,
-        "detail": "sklearn",
+        "detail": "sklearn.ensemble",
         "documentation": {}
     },
     {
@@ -148,7 +148,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "df = pd.read_csv('../ml-model/StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({",
+        "peekOfCode": "df = pd.read_csv('../ml-model/StressLevelDataset.csv')\nX = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nrf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -157,7 +157,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "X = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], ",
+        "peekOfCode": "X = df.iloc[:, :-1].values\ny = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nrf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -166,7 +166,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "y = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], ",
+        "peekOfCode": "y = df.iloc[:, -1].values\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)\nsc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nrf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -175,7 +175,7 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "sc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], ",
+        "peekOfCode": "sc = MinMaxScaler()\nX_train = sc.fit_transform(X_train)\nrf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
@@ -184,34 +184,16 @@
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "X_train = sc.fit_transform(X_train)\nlogreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], ",
+        "peekOfCode": "X_train = sc.fit_transform(X_train)\nrf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
     {
-        "label": "logreg",
+        "label": "rf",
         "kind": 5,
         "importPath": "ml-model.model",
         "description": "ml-model.model",
-        "peekOfCode": "logreg = svm.SVC(kernel='linear')\nlogreg.fit(X_train, y_train)\npickle.dump(logreg, open('../deploy-lr-project/model.pkl', 'wb'))\ninput_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], \n    'blood_pressure' : [1], ",
-        "detail": "ml-model.model",
-        "documentation": {}
-    },
-    {
-        "label": "input_data",
-        "kind": 5,
-        "importPath": "ml-model.model",
-        "description": "ml-model.model",
-        "peekOfCode": "input_data = pd.DataFrame({\n    'anxiety_level' : [14], \n    'self_esteem' : [20], \n    'mental_health_history' : [0], \n    'depression' : [11], \n    'headache' : [2], \n    'blood_pressure' : [1], \n    'sleep_quality' : [2], \n    'breathing_problem' : [4], \n    'noise_level' : [2], ",
-        "detail": "ml-model.model",
-        "documentation": {}
-    },
-    {
-        "label": "predicted",
-        "kind": 5,
-        "importPath": "ml-model.model",
-        "description": "ml-model.model",
-        "peekOfCode": "predicted = logreg.predict(input_data)\nprint(predicted[0])",
+        "peekOfCode": "rf = RandomForestClassifier(n_estimators=30)\nrf.fit(X_train, y_train)\npickle.dump(rf, open('../deploy-lr-project/model.pkl', 'wb'))",
         "detail": "ml-model.model",
         "documentation": {}
     },
